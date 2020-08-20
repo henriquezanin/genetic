@@ -17,7 +17,7 @@ func main() {
 		return x*math.Sin(10*math.Pi*x) + 1
 	}
 	ga.MaxGenerations = 200
-	ga.MutationRate = 1
+	ga.MutationRate = 0.1
 	ga.CrossoverRate = 0.7
 	ga.TournamentSize = 3
 	ga.Maximize(obj)
