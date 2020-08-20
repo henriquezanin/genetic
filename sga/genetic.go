@@ -116,16 +116,16 @@ func (ga *Genetic) crossover() {
 	}
 	size := ga.initialSize * 2 / 3
 	for i := 0; i < size-1; i++ {
-		var chield individual
+		var child individual
 		rand.Seed(time.Now().UnixNano())
 		if rand.Float64() < ga.CrossoverRate {
 			newChrom := blx(ga.pool[i].chrom, ga.pool[i+1].chrom, 0.5)
 			for newChrom > ga.maxXvalue || newChrom < ga.minXvalue {
 				newChrom = blx(ga.pool[i].chrom, ga.pool[i+1].chrom, 0.5)
 			}
-			chield = individual{chrom: newChrom}
-			chield.mutate(ga.minXvalue, ga.maxXvalue, ga.MutationRate)
-			ga.pool.append(chield)
+			child = individual{chrom: newChrom}
+			child.mutate(ga.minXvalue, ga.maxXvalue, ga.MutationRate)
+			ga.pool.append(child)
 		}
 	}
 }
